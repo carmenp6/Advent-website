@@ -607,7 +607,7 @@ function openHiddenGiftImage(egg) {
   const image = document.createElement("img");
 
   // We add your actual image here later.
-  image.src = "afbeelding.png";
+  image.src = "Afbeelding.png";
   image.alt = "A special Christmas surprise";
 
   const closeButton = document.createElement("button");
