@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#10251f">
+  <title>A Little Christmas for You</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <button id="musicToggle" class="music-toggle" type="button"
+    aria-pressed="false">
+    ♫ Play Christmas Music
+  </button>
+
+  <div class="volume-control">
+  <label for="musicVolume">♫ Volume</label>
+  <input
+    type="range"
+    id="musicVolume"
+    min="0"
+    max="100"
+    value="20"
+    aria-label="Music volume"
+  >
+</div>
+
+  <audio id="christmasMusic" loop preload="none">
+    <source src="christmas-music.mp3" type="audio/mpeg">
+  </audio>
+
+    <div class="winter-world" id="winterWorld" aria-hidden="true"></div>
+  <div class="snow" id="snow" aria-hidden="true"></div>
+
+  <div class="christmas-lights" aria-hidden="true">
+    <span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span>
+  </div>
+
+  <div class="forest forest-left" aria-hidden="true">
+    <span>🎄</span><span>🎄</span><span>🎄</span><span>🎄</span>
+    <span>🎄</span><span>🎄</span>
+  </div>
+  <div class="forest forest-right" aria-hidden="true">
+    <span>🎄</span><span>🎄</span><span>🎄</span><span>🎄</span>
+    <span>🎄</span><span>🎄</span>
+  </div>
+
+  <header class="hero">
+    <h1>An Advent Calendar<br><span>Just for You</span></h1>
+  
+  </header>
+
+  
+
+      <div class="journey">
+        <svg
+          class="journey-path"
+          id="journeyPath"
+          viewBox="0 0 1000 6000"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
+          <path id="pathLine" d="" />
+        </svg>
+        <div class="gifts" id="gifts"></div>
+      </div>
+
+     
+    </section>
+    <section class="christmas-ending">
+      <div class="ending-stars">✧ · ✦ · ✧</div>
+      <h3>Merry Christmas and a Happy New Year!</h3>
+
+    <div class="ending-stars">✧ · ✦ · ✧</div>
+    </section>
+
+  </main>
+
+  
+  <dialog id="giftDialog" class="gift-dialog">
+    <button class="close-dialog" id="closeDialog" aria-label="Close">
+      ×
+    </button>
+    <div class="dialog-sparkle">✧</div>
+    <p class="eyebrow" id="dialogDay">A LITTLE SURPRISE</p>
+    <h2 id="dialogTitle">A gift just for you</h2>
+    <p id="dialogText">
+      This little surprise is waiting to be filled with something special.
+    </p>
+    <button class="start-button dialog-button" id="dialogOkay">
+      How lovely ✨
+    </button>
+  </dialog>
+</body>
+</html>
+
+

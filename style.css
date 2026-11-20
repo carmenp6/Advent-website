@@ -1,0 +1,1764 @@
+
+:root {
+  --night: #10251f;
+  --night-light: #18382e;
+  --pine: #285344;
+  --pink: #f2b5cc;
+  --pink-light: #ffe4ed;
+  --gold: #f6d995;
+  --cream: #fff8ed;
+  --muted: #c7d4c9;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 35px;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  overflow-x: hidden;
+  color: var(--cream);
+  background:
+    radial-gradient(ellipse at 50% 8%, #285344 0%, transparent 36%),
+    radial-gradient(ellipse at 10% 35%, #244437 0%, transparent 28%),
+    radial-gradient(ellipse at 90% 65%, #203e33 0%, transparent 30%),
+    linear-gradient(180deg, #10251f 0%, #172d26 45%, #10251f 100%);
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  width: min(90vw, 900px);
+  height: 650px;
+  transform: translateX(-50%);
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse,
+    rgba(242, 181, 204, 0.09),
+    transparent 68%
+  );
+}
+
+a {
+  color: inherit;
+}
+
+.christmas-lights {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  width: 100%;
+  height: 60px;
+  padding: 0 2%;
+  border-top: 2px solid #425e4c;
+}
+
+.christmas-lights::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 22px;
+  border-bottom: 2px solid #425e4c;
+  border-radius: 0 0 50% 50%;
+}
+
+.christmas-lights span {
+  position: relative;
+  z-index: 1;
+  width: 12px;
+  height: 18px;
+  margin-top: 18px;
+  border-radius: 45% 45% 50% 50%;
+  background: var(--gold);
+  box-shadow: 0 0 10px #f6d995, 0 0 24px #f6d995;
+  animation: twinkle 2s ease-in-out infinite alternate;
+}
+
+.christmas-lights span:nth-child(3n) {
+  background: var(--pink);
+  box-shadow: 0 0 12px var(--pink), 0 0 24px var(--pink);
+  animation-delay: -0.8s;
+}
+
+.christmas-lights span:nth-child(3n + 1) {
+  animation-delay: -1.3s;
+}
+
+@keyframes twinkle {
+  from { opacity: 0.65; }
+  to { opacity: 1; }
+}
+
+.forest {
+  position: absolute;
+  top: 180px;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 65px;
+  color: #315b46;
+  opacity: 0.28;
+  pointer-events: none;
+  user-select: none;
+}
+
+.forest-left {
+  left: -15px;
+}
+
+.forest-right {
+  right: -15px;
+}
+
+.forest span {
+  font-family: Arial, sans-serif;
+  font-size: clamp(70px, 10vw, 145px);
+  line-height: 0.6;
+  transform: scaleX(0.85);
+}
+
+.forest span:nth-child(even) {
+  font-size: clamp(50px, 7vw, 100px);
+  color: #42684e;
+}
+
+.snow {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 100%;
+  min-height: 6400px;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.snowflake {
+  position: absolute;
+  top: -30px;
+  color: #fff8ed;
+  opacity: 0.7;
+  animation: snowfall linear infinite;
+}
+
+@keyframes snowfall {
+  from {
+    transform: translate3d(0, -30px, 0) rotate(0deg);
+  }
+  to {
+    transform: translate3d(35px, 7200px, 0) rotate(360deg);
+  }
+}
+
+.hero {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100svh;
+  padding: 130px 24px 100px;
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0 0 22px;
+  color: var(--gold);
+  font-family: Arial, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  line-height: 1.8;
+}
+
+.hero h1 {
+  margin: 0;
+  color: #9b5276;
+  font-size: clamp(3rem, 8vw, 6.7rem);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.045em;
+  text-shadow: 0 5px 40px rgba(0, 0, 0, 0.18);
+}
+
+.hero h1 span {
+  color: var(--pink);
+  font-style: italic;
+}
+
+.intro {
+  max-width: 430px;
+  margin: 28px auto 32px;
+  color: var(--muted);
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  line-height: 1.9;
+}
+
+.start-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 24px;
+  border: 1px solid rgba(242, 181, 204, 0.65);
+  border-radius: 999px;
+  color: var(--cream);
+  background: rgba(242, 181, 204, 0.1);
+  font: inherit;
+  font-size: 0.95rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.start-button:hover {
+  background: rgba(242, 181, 204, 0.2);
+  transform: translateY(-3px);
+}
+
+.hero-decoration {
+  display: flex;
+  align-items: center;
+  gap: 38px;
+  margin-top: 65px;
+  color: var(--gold);
+  font-size: 1.3rem;
+}
+
+.hero-decoration span:nth-child(2) {
+  color: var(--pink);
+  font-size: 2rem;
+}
+
+.advent-section {
+  position: relative;
+  z-index: 2;
+  padding: 0 20px 100px;
+  margin-top: -10px;
+}
+
+.section-heading {
+  max-width: 650px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.section-heading h2,
+.journey-end h2 {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 3.6rem);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.section-heading h2 span {
+  color: var(--pink);
+  font-style: italic;
+}
+
+.section-heading > p:last-child,
+.journey-end > p {
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.journey {
+  position: relative;
+  width: min(100%, 1000px);
+  height: 4400px;
+  margin: 40px auto 0;
+}
+
+.journey-path {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.journey-path path {
+  fill: none;
+  stroke: #769c78;
+  stroke-width: 4;
+  stroke-dasharray: 3 17;
+  stroke-linecap: round;
+  opacity: 0.55;
+  vector-effect: non-scaling-stroke;
+}
+
+.gifts {
+  position: absolute;
+  inset: 0;
+}
+
+.gift {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  width: 125px;
+  padding: 0;
+  border: 0;
+  color: var(--cream);
+  background: transparent;
+  font: inherit;
+  text-align: center;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+  transition: transform 0.25s ease;
+}
+
+.gift:hover {
+  z-index: 4;
+  transform: translate(-50%, -50%) scale(1.09);
+}
+
+.gift:focus-visible,
+.start-button:focus-visible,
+.back-to-top:focus-visible,
+.close-dialog:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 5px;
+}
+
+.gift-box {
+  position: relative;
+  display: block;
+  width: 72px;
+  height: 66px;
+  border: 1px solid rgba(255, 248, 237, 0.4);
+  border-radius: 4px;
+  background: var(--pink);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.25s ease;
+}
+
+.gift-box::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: -5px;
+  width: 80px;
+  height: 14px;
+  border: 1px solid rgba(255, 248, 237, 0.35);
+  border-radius: 3px;
+  background: #ffd9e6;
+}
+
+
+.gift-box::after {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 29px;
+  width: 13px;
+  height: calc(100% + 8px);
+  background: var(--gold);
+  opacity: 0.95;
+  z-index: 2;
+}
+
+
+.gift-ribbon {
+  position: absolute;
+  top: -24px;
+  left: 14px;
+  z-index: 1;
+  width: 23px;
+  height: 17px;
+  border: 4px solid var(--gold);
+  border-radius: 50% 50% 0 50%;
+  transform: rotate(-20deg);
+}
+
+.gift-ribbon::after {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: 12px;
+  width: 20px;
+  height: 15px;
+  border: 4px solid var(--gold);
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(38deg);
+}
+
+.gift:nth-child(4n + 1) .gift-box {
+  background: #a6c9a4;
+}
+
+.gift:nth-child(4n + 1) .gift-box::before {
+  background: #c1ddba;
+}
+
+.gift:nth-child(4n + 1) .gift-box::after {
+  background: var(--pink-light);
+}
+
+.gift:nth-child(4n + 2) .gift-box {
+  background: #d4b46c;
+}
+
+.gift:nth-child(4n + 2) .gift-box::before {
+  background: #ead39b;
+}
+
+.gift:nth-child(4n + 2) .gift-box::after {
+  background: #b95f80;
+}
+
+.gift:nth-child(4n + 3) .gift-box {
+  background: #bd7793;
+}
+
+.gift:nth-child(4n + 3) .gift-box::before {
+  background: #e4a7bd;
+}
+
+.gift-day {
+  color: var(--gold);
+  font-family: Arial, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.gift-label {
+  font-size: 1.05rem;
+  font-style: italic;
+}
+
+.journey-end {
+  max-width: 580px;
+  margin: 30px auto 0;
+  text-align: center;
+}
+
+.end-star {
+  margin-bottom: 20px;
+  color: var(--gold);
+  font-size: 2.4rem;
+}
+
+.journey-end h2 {
+  color: var(--pink-light);
+}
+
+.back-to-top {
+  display: inline-block;
+  margin-top: 22px;
+  color: var(--gold);
+  text-underline-offset: 5px;
+}
+
+footer {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  padding: 32px 20px;
+  border-top: 1px solid rgba(255, 248, 237, 0.1);
+  color: var(--muted);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.footer-star {
+  color: var(--gold);
+}
+
+.gift-dialog {
+  position: fixed;
+  width: min(90vw, 440px);
+  padding: 42px 30px 35px;
+  border: 1px solid rgba(242, 181, 204, 0.5);
+  border-radius: 20px;
+  color: var(--cream);
+  background: #18382e;
+  text-align: center;
+  box-shadow: 0 25px 100px rgba(0, 0, 0, 0.45);
+}
+
+.gift-dialog::backdrop {
+  background: rgba(5, 15, 12, 0.78);
+  backdrop-filter: blur(5px);
+}
+
+.gift-dialog h2 {
+  margin: 8px 0 14px;
+  color: var(--pink-light);
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.gift-dialog p:not(.eyebrow) {
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.dialog-sparkle {
+  margin-bottom: 18px;
+  color: var(--gold);
+  font-size: 2.5rem;
+}
+
+.close-dialog {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  border: 0;
+  color: var(--pink-light);
+  background: transparent;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.dialog-button {
+  margin-top: 16px;
+}
+
+@media (max-width: 600px) {
+  .hero {
+    min-height: 90svh;
+    padding: 115px 22px 70px;
+  }
+
+  .forest {
+    opacity: 0.16;
+  }
+
+  .advent-section {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  .journey {
+    height: 5300px;
+    margin-top: 30px;
+  }
+
+  .gift {
+    width: 95px;
+    gap: 12px;
+  }
+
+  .gift-box {
+    width: 58px;
+    height: 54px;
+  }
+
+  .gift-box::before {
+    width: 66px;
+  }
+
+  .gift-box::after {
+    left: 22px;
+    width: 12px;
+  }
+
+  .gift-ribbon {
+    left: 18px;
+  }
+
+  .gift-label {
+    font-size: 0.92rem;
+  }
+
+  .gift-day {
+    font-size: 0.62rem;
+  }
+
+  .journey-path path {
+    stroke-width: 3;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* PINK CHRISTMAS WONDERLAND */
+
+:root {
+  --night: #392536;
+  --night-light: #694153;
+  --pine: #285344;
+  --pink: #f4a8c6;
+  --pink-light: #ffe8f0;
+  --gold: #f9dca0;
+  --cream: #fff8f0;
+  --muted: #f1dce4;
+}
+
+/* A rosy winter sky with deep evergreen shadows */
+body {
+  background:
+    radial-gradient(ellipse at 50% 4%,
+      rgba(255, 210, 224, 0.96), transparent 32%),
+    radial-gradient(ellipse at 0% 20%,
+      rgba(223, 133, 169, 0.48), transparent 38%),
+    radial-gradient(ellipse at 100% 44%,
+      rgba(242, 185, 205, 0.28), transparent 34%),
+    radial-gradient(ellipse at 50% 75%,
+      rgba(112, 73, 103, 0.5), transparent 45%),
+    linear-gradient(180deg,
+      #f6d2df 0%,
+      #c98fa9 16%,
+      #614456 35%,
+      #263c32 58%,
+      #173329 80%,
+      #f1cad9 100%);
+  background-attachment: fixed;
+}
+
+/* Soft pink atmospheric glow */
+body::before {
+  position: fixed;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background:
+    radial-gradient(ellipse at 50% 35%,
+      rgba(255, 230, 239, 0.18), transparent 60%);
+}
+
+/* Make the forest look more like Christmas trees */
+.forest {
+  position: absolute;
+  z-index: 1;
+  top: 120px;
+  gap: 60px;
+  opacity: 0.85;
+}
+
+.forest-left {
+  left: -12px;
+}
+
+.forest-right {
+  right: -12px;
+}
+
+.forest span {
+  font-family: Arial, sans-serif;
+  font-size: clamp(65px, 9vw, 125px);
+  line-height: 0.65;
+  color: #214a39;
+  text-shadow:
+    0 0 18px rgba(249, 220, 160, 0.12),
+    4px 8px 15px rgba(18, 34, 28, 0.22);
+}
+
+.forest span:nth-child(even) {
+  color: #47745a;
+}
+
+/* A more magical, golden-and-pink light garland */
+.christmas-lights span {
+  width: 13px;
+  height: 19px;
+  box-shadow:
+    0 0 12px currentColor,
+    0 0 25px currentColor;
+  color: #f9dca0;
+}
+
+.christmas-lights span:nth-child(3n) {
+  color: #f4a8c6;
+  background: #f4a8c6;
+  box-shadow:
+    0 0 12px #f4a8c6,
+    0 0 26px #f4a8c6;
+}
+
+/* Pink winter light around the gifts */
+.gift-box {
+  box-shadow:
+    0 12px 24px rgba(0, 0, 0, 0.25),
+    0 0 22px rgba(244, 168, 198, 0.12);
+}
+
+.gift:hover .gift-box {
+  box-shadow:
+    0 12px 24px rgba(0, 0, 0, 0.25),
+    0 0 28px rgba(249, 220, 160, 0.42);
+}
+
+/* A snowy, winding trail */
+.journey-path path {
+  stroke: #f8d9e4;
+  stroke-width: 4;
+  stroke-dasharray: 2 15;
+  opacity: 0.8;
+}
+
+/* Softer, warmer text against the new background */
+.intro,
+.section-heading > p:last-child,
+.journey-end > p {
+  color: #fff0f4;
+}
+
+@media (max-width: 600px) {
+  .forest {
+    opacity: 0.55;
+  }
+
+  body {
+    background-attachment: scroll;
+  }
+}
+
+/* ========================================
+   ENCHANTED PINK CHRISTMAS FOREST
+   ======================================== */
+
+body {
+  position: relative;
+  isolation: isolate;
+}
+
+.winter-world {
+  position: absolute;
+  z-index: 0;
+  inset: 0 0 auto;
+  width: 100%;
+  height: 6400px;
+  overflow: hidden;
+  pointer-events: auto;
+  background:
+    radial-gradient(ellipse at 50% 5%, #ffe5ed 0%, transparent 32%),
+    linear-gradient(180deg,
+      #f8d9e4 0%,
+      #eab8d0 10%,
+      #9f759e 23%,
+      #655276 38%,
+      #37455a 54%,
+      #253e39 72%,
+      #19342d 100%);
+}
+
+.winter-world svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.hero,
+.advent-section,
+footer {
+  position: relative;
+  z-index: 2;
+}
+
+.forest {
+  display: none;
+}
+
+.snow {
+  z-index: 3;
+  opacity: 0.8;
+}
+
+.christmas-lights {
+  z-index: 5;
+}
+
+.hero {
+  background:
+    radial-gradient(ellipse at center, rgba(255, 228, 239, 0.2), transparent 68%);
+}
+
+.section-heading {
+  padding: 25px 18px;
+  border: 1px solid rgba(255, 238, 245, 0.25);
+  border-radius: 24px;
+  background: rgba(48, 37, 60, 0.25);
+  backdrop-filter: blur(5px);
+}
+
+.gift {
+  z-index: 2;
+}
+
+.gift-box {
+  filter: drop-shadow(0 8px 8px rgba(20, 23, 31, 0.2));
+}
+
+.gift-label {
+  text-shadow: 0 2px 8px rgba(25, 28, 37, 0.8);
+}
+
+.gift-day {
+  padding: 5px 8px;
+  border: 1px solid rgba(255, 245, 249, 0.2);
+  border-radius: 20px;
+  background: rgba(36, 39, 51, 0.55);
+}
+
+.journey-path path {
+  stroke: #ffe5f0;
+  stroke-width: 5;
+  stroke-dasharray: 2 17;
+  filter: drop-shadow(0 0 5px #ffb8d4);
+  opacity: 0.95;
+}
+
+@media (max-width: 600px) {
+  .winter-world {
+    height: 6400px;
+  }
+
+  .section-heading {
+    padding: 20px 14px;
+  }
+}
+
+/* PINKER CHRISTMAS WONDERLAND */
+
+.winter-world {
+  background:
+    radial-gradient(ellipse at 50% 5%,
+      #fff0f5 0%, transparent 34%),
+    linear-gradient(180deg,
+      #ffe1eb 0%,
+      #f6bfd5 12%,
+      #e6a6c7 24%,
+      #d58db7 35%,
+      #bd88b1 46%,
+      #e8b5d0 60%,
+      #f8d8e5 76%,
+      #e9b8d0 88%,
+      #f9dfe9 100%);
+}
+
+/* Rosy light across the landscape */
+.winter-world::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 10% 20%,
+      rgba(255, 198, 220, 0.32), transparent 25%),
+    radial-gradient(ellipse at 90% 43%,
+      rgba(255, 207, 226, 0.34), transparent 28%),
+    radial-gradient(ellipse at 15% 72%,
+      rgba(255, 222, 235, 0.35), transparent 26%),
+    radial-gradient(ellipse at 85% 92%,
+      rgba(255, 210, 229, 0.32), transparent 30%);
+  pointer-events: none;
+}
+
+/* Give the winding trail a stronger glow */
+.journey-path {
+  z-index: 1;
+}
+
+.journey-path path {
+  stroke: #fff7fb;
+  stroke-width: 7;
+  stroke-dasharray: none;
+  stroke-linecap: round;
+  opacity: 0.95;
+  filter:
+    drop-shadow(0 0 4px #fff0f7)
+    drop-shadow(0 0 12px #f6a9cb);
+}
+
+.gift {
+  z-index: 2;
+}
+
+.gift-day {
+  color: #fff7fb;
+  background: rgba(114, 57, 86, 0.72);
+  border-color: rgba(255, 231, 241, 0.55);
+}
+
+/* More visible snow and twinkling lights */
+.snowflake {
+  color: #fff8fc;
+  text-shadow: 0 0 8px #fff, 0 0 14px #f6b8d3;
+}
+
+@media (max-width: 600px) {
+  .journey-path path {
+    stroke-width: 5;
+  }
+}
+
+/* Clearer snowy path between the gifts */
+
+.journey-path {
+  overflow: visible;
+  pointer-events: none;
+}
+
+.journey-path path {
+  fill: none;
+  stroke: #fff7fb;
+  stroke-width: 8;
+  stroke-dasharray: none;
+  stroke-linecap: round;
+  opacity: 1;
+  filter:
+    drop-shadow(0 0 3px #fff)
+    drop-shadow(0 0 10px #f5a6c8);
+}
+
+@media (max-width: 600px) {
+  .journey-path path {
+    stroke-width: 5;
+  }
+}
+
+/* Smooth, continuous pink snow */
+
+.winter-world {
+  background: linear-gradient(
+    180deg,
+    #fff0f5 0%,
+    #f9d9e6 15%,
+    #f2c6db 35%,
+    #f7dce8 60%,
+    #fbe8ef 82%,
+    #f1cad9 100%
+  );
+}
+
+.journey-path path {
+  stroke: #fffafd;
+  stroke-width: 8;
+  stroke-dasharray: none;
+  stroke-linecap: round;
+  opacity: 0.95;
+  filter: drop-shadow(0 0 8px rgba(255, 204, 226, 0.9));
+}
+
+@media (max-width: 600px) {
+  .journey-path path {
+    stroke-width: 5;
+  }
+}
+
+/* Hide the solid white line connecting the gifts */
+.journey-path path {
+  display: none;
+}
+
+
+/* Special, larger Advent gift for day 25 */
+.final-gift {
+  scale: 1.3;
+  transform-origin: center top;
+  z-index: 10;
+}
+
+
+
+
+/* Christmas background and clickable secret surprises */
+.winter-world {
+  z-index: 1 !important;
+  pointer-events: none;
+}
+
+.winter-world svg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.winter-world svg .easter-egg {
+  cursor: pointer;
+  pointer-events: all;
+}
+
+/* Keep the advent calendar and gifts visible */
+.hero,
+.advent-section,
+footer {
+  position: relative;
+  z-index: 2;
+}
+
+
+
+/* Christmas music button */
+.music-toggle {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 1000;
+  padding: 12px 18px;
+  border: 1px solid #fff1f6;
+  border-radius: 30px;
+  background: rgba(255, 231, 240, 0.96);
+  color: #75465f;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 14px;
+  box-shadow: 0 4px 16px rgba(100, 50, 75, 0.18);
+  cursor: pointer;
+}
+
+.music-toggle:hover {
+  background: #fff7fa;
+  transform: translateY(-1px);
+}
+
+.music-toggle:focus-visible {
+  outline: 2px solid #a85e82;
+  outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+  .music-toggle {
+    top: 12px;
+    right: 12px;
+    padding: 10px 13px;
+    font-size: 12px;
+  }
+}
+
+.volume-control {
+  position: fixed;
+  top: 75px;
+  right: 20px;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 10px 14px;
+  border: 1px solid #f3bfd4;
+  border-radius: 18px;
+
+  background: rgba(255, 240, 247, 0.95);
+  color: #9b5276;
+
+  font-family: inherit;
+  font-size: 13px;
+  box-shadow: 0 3px 12px rgba(180, 100, 140, 0.15);
+}
+
+.volume-control input[type="range"] {
+  width: 90px;
+  accent-color: #e89abb;
+  cursor: pointer;
+}
+
+body {
+  background:
+    radial-gradient(ellipse at 50% 4%,
+      rgba(255, 210, 224, 0.96), transparent 32%),
+    radial-gradient(ellipse at 0% 20%,
+      rgba(223, 133, 169, 0.48), transparent 38%),
+    radial-gradient(ellipse at 100% 44%,
+      rgba(242, 185, 205, 0.28), transparent 34%),
+    radial-gradient(ellipse at 50% 75%,
+      rgba(112, 73, 103, 0.5), transparent 45%),
+    linear-gradient(180deg,
+      #f6d2df 0%,
+      #c98fa9 16%,
+      #614456 35%,
+      #263c32 58%,
+      #173329 80%,
+      #f1cad9 100%);
+  background-attachment: fixed;
+}
+
+html,
+body {
+  background-color: #f1cad9;
+}
+
+
+
+/* A little Christmas and New Year ending */
+
+.christmas-ending {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 950px 24px 100px;
+  text-align: center;
+  color: #9b5276;
+}
+
+
+.christmas-ending h2 {
+  margin: 18px 0 8px;
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  font-weight: 400;
+  font-style: italic;
+  color: #fff8fc;
+  text-shadow: 0 2px 18px rgba(180, 100, 140, 0.3);
+}
+
+.christmas-ending h3 {
+  margin: 0;
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  font-weight: 400;
+  color: #9b5276;
+}
+
+.christmas-ending p {
+  margin: 28px auto;
+  max-width: 440px;
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: #87536f;
+}
+
+.ending-stars {
+  color: #b47a94;
+  font-size: 1.5rem;
+  letter-spacing: 0.35em;
+}
+
+
+
+/* ✨ Gentle magical sparkles across the winter world */
+.winter-world::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+
+  background-image:
+    radial-gradient(circle, rgba(255, 248, 252, 0.95) 0 1.5px, transparent 2.5px),
+    radial-gradient(circle, rgba(255, 220, 235, 0.9) 0 2px, transparent 3px),
+    radial-gradient(circle, rgba(249, 220, 160, 0.9) 0 1.5px, transparent 2.5px);
+
+  background-size:
+    173px 227px,
+    251px 313px,
+    307px 269px;
+
+  background-position:
+    23px 37px,
+    91px 113px,
+    147px 61px;
+
+  background-repeat: repeat;
+  opacity: 0.65;
+  animation: winterSparkle 4s ease-in-out infinite alternate;
+}
+
+@keyframes winterSparkle {
+  from { opacity: 0.35; }
+  to { opacity: 0.85; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .winter-world::before {
+    animation: none;
+    opacity: 0.6;
+  }
+}
+
+
+/* 💗 Tiny romantic hearts in the magical Christmas world */
+.winter-world .love-hearts {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.winter-world .love-heart {
+  position: absolute;
+  color: #f6b8d2;
+  font-family: Georgia, serif;
+  font-size: 17px;
+  line-height: 1;
+  text-shadow:
+    0 0 5px rgba(255, 225, 239, 0.9),
+    0 0 12px rgba(255, 190, 220, 0.55);
+  opacity: 0.55;
+  animation: loveHeartGlow 4.5s ease-in-out infinite alternate;
+}
+
+.winter-world .love-heart:nth-child(3n) {
+  color: #fff0f6;
+  font-size: 13px;
+  animation-delay: -2s;
+}
+
+.winter-world .love-heart:nth-child(4n) {
+  color: #f5dba6;
+  font-size: 12px;
+  animation-delay: -3s;
+}
+
+@keyframes loveHeartGlow {
+  from {
+    opacity: 0.25;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 0.75;
+    transform: scale(1.1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .winter-world .love-heart {
+    animation: none;
+    opacity: 0.5;
+  }
+}
+
+
+/* 💗 Soft pink Christmas cursor */
+@media (hover: hover) and (pointer: fine) {
+  html,
+  body,
+  a,
+  button,
+  [role="button"],
+  input,
+  label {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='30' viewBox='0 0 24 30'%3E%3Cpath d='M3 2 L3 23 L9 17 L13 27 L17 25 L13 15 L21 15 Z' fill='%23f2a8ca' stroke='%23fff7fb' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E") 3 2, auto;
+  }
+}
+
+
+/* ✨ Brighter white magical cursor sparkles */
+.cursor-sparkle {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 99999;
+  pointer-events: none;
+  user-select: none;
+
+  font-size: 10px;
+  line-height: 1;
+  color: #ffffff;
+  text-shadow:
+    0 0 4px #ffffff,
+    0 0 9px rgba(255, 255, 255, 0.95),
+    0 0 15px rgba(255, 225, 242, 0.85);
+
+  animation: cursorSparkleFade 850ms ease-out forwards;
+  will-change: transform, opacity;
+}
+
+@keyframes cursorSparkleFade {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0.65) rotate(0deg);
+  }
+
+  35% {
+    opacity: 1;
+    transform: translate(-50%, -65%) scale(1.15) rotate(12deg);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -100%) scale(0.45) rotate(25deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor-sparkle {
+    display: none;
+    animation: none;
+  }
+}
+
+
+/* Hide the titles underneath the Christmas gifts */
+.gift-label {
+  display: none !important;
+}
+
+
+
+.revealed-answer {
+  color: #f2a9c7;
+  font-weight: 700;
+}
+
+.gift {
+  pointer-events: auto;
+}
+
+#dialogText {
+  white-space: pre-line;
+}
+
+/* Keep all Advent gifts clickable, even outside the journey */
+.advent-section {
+  z-index: 3;
+}
+
+/* Keep the complete gift journey above the Christmas ending */
+.journey {
+  position: relative;
+  z-index: 5;
+  overflow: visible;
+}
+
+.christmas-ending {
+  position: relative;
+  z-index: 2;
+}
+
+/* Flying Christmas sleigh */
+.sleigh-flight {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.sleigh-egg {
+  cursor: pointer;
+}
+
+.sleigh-sparkles text {
+  filter: drop-shadow(0 0 5px #f7d58c);
+}
+
+/* Snowball flying towards the screen */
+.snowman-snowball {
+  position: fixed;
+  z-index: 99998;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle at 30% 25%, #ffffff, #d9efff 65%, #a9cde5);
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.9);
+}
+
+/* The screen briefly turns completely white */
+.snowman-white-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: #fff;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+
+
+/* Christmas letter envelope */
+.christmas-envelope {
+  position: fixed;
+  z-index: 99990;
+  width: 76px;
+  height: 52px;
+  padding: 0;
+  border: 2px solid #d99ab8;
+  border-radius: 5px;
+  background: #ffe8f0;
+  cursor: pointer;
+  box-shadow: 0 5px 18px rgba(90, 45, 75, 0.25);
+  transform: translate(-50%, -50%);
+}
+
+.christmas-envelope::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #f2bfd3;
+  clip-path: polygon(0 0, 100% 0, 50% 65%);
+}
+
+.christmas-envelope::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #fff0f5;
+  clip-path: polygon(0 100%, 50% 42%, 100% 100%);
+}
+
+.christmas-envelope:hover {
+  filter: brightness(1.05);
+}
+
+
+/* A little Christmas letter */
+.letter-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(35, 25, 40, 0.6);
+}
+
+.letter-paper {
+  position: relative;
+  width: min(460px, 100%);
+  min-height: 390px;
+  padding: 55px 38px 35px;
+  border: 1px solid #e8c9c9;
+  border-radius: 3px;
+  background:
+    linear-gradient(90deg, transparent 0, transparent 34px, rgba(222, 157, 174, 0.25) 35px, transparent 36px),
+    repeating-linear-gradient(
+      to bottom,
+      #fffaf3 0,
+      #fffaf3 31px,
+      #f0dfe0 32px
+    );
+  color: #594455;
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  transform: rotate(-1deg);
+}
+
+/* Decorative top edge */
+.letter-paper::before {
+  content: "♥";
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #d58eaa;
+  font-size: 23px;
+}
+
+/* Letter heading */
+.letter-paper h2 {
+  margin: 5px 0 28px;
+  color: #b87592;
+  font-family: Georgia, serif;
+  font-size: 25px;
+  font-weight: normal;
+}
+
+/* Your personal message */
+.letter-paper p {
+  color: #594455;
+  font-family: Georgia, serif;
+  font-size: 17px;
+  line-height: 32px;
+  white-space: pre-line;
+  text-align: left;
+}
+
+/* Close button */
+.letter-close {
+  margin-top: 30px;
+  padding: 10px 25px;
+  border: 1px solid #d9a4b9;
+  border-radius: 3px;
+  background: #f6dce6;
+  color: #76536a;
+  cursor: pointer;
+  font: inherit;
+}
+
+
+/* A little cup of hot chocolate */
+.hot-chocolate-cup {
+  position: fixed;
+  z-index: 99990;
+  left: 50%;
+  top: 50%;
+  width: 150px;
+  height: 155px;
+  cursor: pointer;
+  transform: translate(-50%, 0);
+}
+
+.cup-body {
+  position: absolute;
+  left: 25px;
+  top: 35px;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border: 5px solid #e5b5c7;
+  border-radius: 12px 12px 35px 35px;
+  background: linear-gradient(90deg, #fff1f4, #f7d5e2);
+  box-shadow: 0 8px 18px rgba(50, 25, 40, 0.2);
+}
+
+.chocolate-liquid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(#8b523e, #583326);
+  transform: scaleY(1);
+  transform-origin: bottom;
+  transition: transform 3s ease-in-out;
+}
+
+.cup-empty .chocolate-liquid {
+  transform: scaleY(0);
+}
+
+.cup-handle {
+  position: absolute;
+  top: 53px;
+  right: 3px;
+  width: 35px;
+  height: 48px;
+  border: 8px solid #e5b5c7;
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.cup-base {
+  position: absolute;
+  bottom: 12px;
+  left: 35px;
+  width: 80px;
+  height: 8px;
+  border-radius: 50%;
+  background: #d99eb7;
+}
+
+.cup-marshmallow {
+  position: absolute;
+  z-index: 2;
+  top: 8px;
+  left: 18px;
+  width: 18px;
+  height: 12px;
+  border-radius: 50%;
+  background: #fffaf0;
+  transform: rotate(-15deg);
+}
+
+.cup-marshmallow.second {
+  left: 53px;
+  top: 14px;
+  transform: rotate(15deg);
+}
+
+.cup-empty .cup-marshmallow {
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.chocolate-steam {
+  position: absolute;
+  top: 3px;
+  width: 9px;
+  height: 25px;
+  border-left: 3px solid #fff;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: chocolateSteam 2s ease-in-out infinite;
+}
+
+.steam-one {
+  left: 55px;
+}
+
+.steam-two {
+  left: 85px;
+  animation-delay: 0.8s;
+}
+
+@keyframes chocolateSteam {
+  0%, 100% {
+    transform: translateY(5px);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(-5px);
+    opacity: 0.8;
+  }
+}
+
+
+
+
+
+/* The image surprise */
+.hidden-gift-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(35, 25, 40, 0.75);
+}
+
+.hidden-gift-image-frame {
+  width: min(700px, 100%);
+  max-height: 90vh;
+  padding: 18px;
+  border: 2px solid #e5b5c7;
+  border-radius: 12px;
+  background: #fff7f4;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.hidden-gift-image-frame img {
+  display: block;
+  width: 100%;
+  max-height: 72vh;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+.hidden-gift-close {
+  margin-top: 15px;
+  padding: 10px 26px;
+  border: 0;
+  border-radius: 20px;
+  background: #e8b4ca;
+  color: #594455;
+  cursor: pointer;
+  font: inherit;
+}
+
+/* Large special gift from the present sack */
+.hidden-gift-box {
+  position: fixed;
+  z-index: 99990;
+  left: 50%;
+  top: 50%;
+  width: 150px;
+  height: 140px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transform-origin: center;
+}
+
+/* Reuse the Advent gift design, but make it larger and mint green */
+.hidden-gift-box .gift-box {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 110px;
+  height: 100px;
+  transform: translate(-50%, -50%);
+  background: #a8cbb5;
+  border-color: #e8f0df;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.hidden-gift-box .gift-box::before {
+  width: 118px;
+  height: 20px;
+  top: -11px;
+  left: -5px;
+  background: #dce9bd;
+  border-color: #f5edcf;
+}
+
+.hidden-gift-box .gift-box::after {
+  left: 46px;
+  width: 18px;
+  background: #e8c875;
+}
+
+.hidden-gift-box .gift-ribbon {
+  top: -32px;
+  left: 22px;
+  width: 35px;
+  height: 28px;
+  border-color: #e8c875;
+  border-width: 5px;
+}
+
+.hidden-gift-box .gift-ribbon::after {
+  top: -0px;
+  left: 19px;
+  width: 30px;
+  height: 23px;
+  border-color: #e8c875;
+  border-width: 5px;
+}
+
+
+/* Make the first Advent gift extra special */
+.first-gift .gift-box {
+  transform: scale(1.3);
+  transform-origin: center;
+}
+
+.first-gift .gift-day {
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+/* Start here label */
+.first-gift::after {
+  content: "START HERE!";
+  position: absolute;
+  left: 130px;
+  top: -88px;
+  width: 130px;
+  color: #9b5276;
+  font-size: 26px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transform: rotate(8deg);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* Curved arrow pointing towards the first gift */
+.first-gift {
+  overflow: visible;
+}
+
+/* Curved arrow pointing towards the first gift */
+.first-gift .gift-ribbon::before {
+  content: "";
+  position: absolute;
+  left: 88px;
+  top: 25px;
+  width: 55px;
+  height: 55px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Cpath d='M52 5 C52 30 42 43 12 43 M12 43 L23 32 M12 43 L25 49' fill='none' stroke='%239b5276' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  transform: rotate(20deg);
+  pointer-events: none;
+}
